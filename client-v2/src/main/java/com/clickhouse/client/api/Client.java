@@ -1732,7 +1732,7 @@ public class Client implements AutoCloseable {
             settings.setFormat(ClickHouseFormat.RowBinaryWithNamesAndTypes)
                     .waitEndOfQuery(true);
             try (QueryResponse response = operationTimeout == 0 ? query(sqlQuery, params, settings).get() :
-                    query(sqlQuery, settings).get(operationTimeout, TimeUnit.MILLISECONDS)) {
+                    query(sqlQuery, params, settings).get(operationTimeout, TimeUnit.MILLISECONDS)) {
                 List<GenericRecord> records = new ArrayList<>();
                 if (response.getResultRows() > 0) {
                     RowBinaryWithNamesAndTypesFormatReader reader =
