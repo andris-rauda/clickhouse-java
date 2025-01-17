@@ -64,7 +64,7 @@ public class Records implements Iterable<GenericRecord>, AutoCloseable {
         return empty;
     }
 
-    Stream<GenericRecord> stream() {
+    public Stream<GenericRecord> stream() {
         return StreamSupport.stream(spliterator(), false);
     }
 
